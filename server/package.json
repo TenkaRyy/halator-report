@@ -2,6 +2,9 @@
   "name": "halator-backend",
   "version": "1.0.0",
   "description": "Cloud REST API Backend for Halator AI Halal Auditor",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

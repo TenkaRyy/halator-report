@@ -13,9 +13,8 @@ import { useLanguage } from '../hooks/useLanguage';
 import { Zap, Upload, FileText, CheckCircle, Shield, Download, Trash2, ArrowRight, RefreshCw, Sparkles, ChevronRight, List as ListChecks, X, RotateCcw } from 'lucide-react';
 import { useScroll, useTransform } from 'motion/react';
 
-// Declare libraries loaded from CDN in index.html
-declare const html2canvas: any;
-declare const jspdf: any;
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 type Answers = Record<string, string>;
 
@@ -177,7 +176,6 @@ const ProcessAuditScreen: React.FC = () => {
     setIsExporting(true);
 
     try {
-        const { jsPDF } = jspdf;
         const pdf = new jsPDF('p', 'mm', 'a4');
         const pageWidth = pdf.internal.pageSize.getWidth();
         const margin = 15;

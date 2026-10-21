@@ -31,6 +31,7 @@ dist-ssr
 # Build output & artifacts
 metadata.json
 server/dist
+server/data
 server/node_modules
 
 # Agents config
