@@ -93,12 +93,15 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`========================================`);
-  console.log(`🚀 Halator Cloud Backend Running!`);
-  console.log(`📡 URL: http://localhost:${PORT}`);
-  console.log(`🩺 Health Check: http://localhost:${PORT}/api/health`);
-  console.log(`========================================`);
-});
+// Only start the server when NOT running on Vercel (serverless)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`========================================`);
+    console.log(`🚀 Halator Cloud Backend Running!`);
+    console.log(`📡 URL: http://localhost:${PORT}`);
+    console.log(`🩺 Health Check: http://localhost:${PORT}/api/health`);
+    console.log(`========================================`);
+  });
+}
 
 export default app;

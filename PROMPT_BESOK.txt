@@ -1,0 +1,32 @@
+Lanjutkan deploy backend Halator ke Railway. Konteksnya:
+
+## Yang Sudah Selesai:
+- Semua file sudah di-fix dan di-push ke GitHub (repo: TenkaRyy/halator-report)
+- MongoDB Atlas sudah setup (Cluster0, Network Access 0.0.0.0/0 sudah diset)
+- Frontend sudah live di Vercel: https://halator-report.vercel.app
+
+## Yang Belum:
+1. Deploy backend ke Railway (kemarin Railway down/maintenance)
+2. Tambah VITE_API_URL di Vercel setelah dapat URL Railway
+
+## Credentials MongoDB:
+- Username: jefrykurniawan892_db_user
+- Password: WMqAoLntqkpkfd20
+- Connection String: mongodb+srv://jefrykurniawan892_db_user:WMqAoLntqkpkfd20@cluster0.oqx19sc.mongodb.net/halator?retryWrites=true&w=majority
+
+## Langkah Railway yang harus dilakukan:
+1. Buka railway.com - New Project - Deploy from GitHub - pilih halator-report
+2. Settings: Root Directory = server
+3. Environment Variables:
+   - PORT = 5000
+   - NODE_ENV = production
+   - MONGODB_URI = mongodb+srv://jefrykurniawan892_db_user:WMqAoLntqkpkfd20@cluster0.oqx19sc.mongodb.net/halator?retryWrites=true&w=majority
+   - JWT_SECRET = halator_secure_jwt_secret_key_2026_xyz987
+   - JWT_EXPIRES_IN = 7d
+   - CORS_ORIGIN = https://halator-report.vercel.app
+4. Generate Domain di Railway
+5. Setelah dapat URL Railway, tambah di Vercel - Environment Variables:
+   - VITE_API_URL = https://<URL-RAILWAY>/api
+6. Redeploy Vercel
+
+Ajari aku step by step dengan screenshot seperti kemarin.

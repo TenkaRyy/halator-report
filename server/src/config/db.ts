@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 
 export const connectDB = async (): Promise<void> => {
+  // Reuse existing connection in serverless environments (Vercel)
+  if (mongoose.connection.readyState === 1) {
+    return;
+  }
+
   const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/halator';
 
   try {
