@@ -3,7 +3,9 @@ import path from 'path';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-const DATA_DIR = path.resolve(process.cwd(), 'data');
+const DATA_DIR = process.env.VERCEL
+  ? path.resolve('/tmp', 'data')
+  : path.resolve(process.cwd(), 'data');
 const USERS_FILE = path.join(DATA_DIR, 'users.json');
 const AUDITS_FILE = path.join(DATA_DIR, 'audits.json');
 const AFFILIATES_FILE = path.join(DATA_DIR, 'affiliates.json');

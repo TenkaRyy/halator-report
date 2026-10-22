@@ -1,8 +1,19 @@
 {
   "framework": "vite",
-  "buildCommand": "npm run build",
+  "installCommand": "npm install && cd server && npm install",
+  "buildCommand": "cd server && npm run build && cd .. && npm run build",
   "outputDirectory": "dist",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "server/**",
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
